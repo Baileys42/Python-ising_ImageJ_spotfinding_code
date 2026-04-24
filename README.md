@@ -16,6 +16,7 @@ Python port of a Fiji/ImageJ single-molecule FRET analysis pipeline. Processes b
 ---
 
 ## Requirements
+Can clone environment present within environment.yml file or manually create by installing below packages.
 
 ```
 pip install tifffile numpy scipy pandas matplotlib tqdm
