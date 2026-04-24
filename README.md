@@ -10,7 +10,6 @@ Python port of a Fiji/ImageJ single-molecule FRET analysis pipeline. Processes b
 |---|---|
 | `traj_macro.py` | Main pipeline — background correction, spot finding, trajectories, colocalisation |
 | `trajectory_extractor.py` | Standalone trajectory extraction from an existing Results folder |
-| `movie_vis.py` | Quick TIFF stack viewer (Jupyter) |
 | `troubleshoot.py` | Diagnose OME-TIFF loading issues |
 
 ---
