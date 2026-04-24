@@ -1,0 +1,12 @@
+name: ImageJ_mogging
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - pip
+  - matplotlib
+  - pandas
+  - scipy
+  - tifffile
+  - ipykernel
+prefix: C:\Users\bes097\Miniconda3\envs\ImageJ_mogging
