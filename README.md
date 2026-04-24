@@ -1,6 +1,6 @@
 # traj_macro.py
 
-Python port of a Fiji/ImageJ single-molecule FRET analysis pipeline. Processes batches of client (488 nm) and chaperone (647 nm) TIRF microscopy image pairs through background correction, spot finding, trajectory extraction, and colocalisation analysis.
+Python port of a Fiji/ImageJ single-molecule FRET analysis pipeline. Processes batches of client (488 nm) and chaperone (647 nm) TIRF microscopy image pairs through background correction, spot finding, trajectory extraction, and colocalisation analysis. No transformation of channels for this dataset.
 
 ---
 
