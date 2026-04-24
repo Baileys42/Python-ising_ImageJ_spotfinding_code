@@ -451,20 +451,29 @@ def run_trajectories(out_dir: Path, live_ax=None) -> None:
             live_ax.figure.canvas.draw()
             live_ax.figure.canvas.flush_events()
 
-        mean_line = None
+        mean_line     = None
+        current_line  = None
+        running_sum   = np.zeros(n_frames)
 
         def on_peak(i, traj):
-            nonlocal mean_line
+            nonlocal mean_line, current_line, running_sum
             if live_ax is None:
                 return
-            live_ax.plot(traj, color='steelblue', alpha=0.2, linewidth=0.5)
-            # update mean line
+
+            running_sum += traj
+            running_mean = running_sum / (i + 1)
+
+            # Remove previous current-molecule line
+            if current_line is not None:
+                current_line.remove()
+            # Update mean line
             if mean_line is not None:
                 mean_line.remove()
-            current_data = np.array([live_ax.lines[j].get_ydata()
-                                     for j in range(len(live_ax.lines))])
-            mean_line, = live_ax.plot(current_data.mean(axis=0),
-                                      color='white', linewidth=1.5)
+
+            mean_line,    = live_ax.plot(running_mean, color='steelblue',
+                                         alpha=0.5, linewidth=1.5)
+            current_line, = live_ax.plot(traj, color='white', linewidth=0.8)
+
             live_ax.set_title(f"{out_dir.name}  —  {channel}  ({i+1} / {n_peaks} peaks)",
                               color='white', fontsize=10)
             live_ax.figure.canvas.draw()
